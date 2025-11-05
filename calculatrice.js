@@ -1,3 +1,4 @@
+let display = document.querySelector('.display');
 let number1 = "";
 let operator = "";
 let number2 = "";
@@ -20,7 +21,6 @@ function ValidationSaisie(operator) {
 }
 
 function AffichageChiffres() {
-    let display = document.querySelector('.display');
     let buttons = document.querySelectorAll('button[data-number]');
 
     buttons.forEach(function (button) {
@@ -47,15 +47,16 @@ function AffichageOperateurs() {
 
     buttons.forEach(function (button) {
         button.addEventListener('click', function () {
-            let operator = button.getAttribute('data-operator');
+            let op = button.getAttribute('data-operator');
 
-            ValidationSaisie(operator);
+            ValidationSaisie(op);
+
+            operator = op;
         });
     });
 }
 
 function ClearButton() {
-    let display = document.querySelector('.display');
     let clearButton = document.querySelector('.clear');
 
     clearButton.addEventListener('click', function () {
@@ -63,10 +64,28 @@ function ClearButton() {
     });
 }
 
+function Calculer() {
+    let equalsButton = document.querySelector('.equals');
+
+    equalsButton.addEventListener('click', function () {
+        if (number1 === "" || operator === "" || number2 === "") {
+            return
+        } else {
+            const calcul = number1 + operator + number2;
+            const resultat = eval(calcul);
+            display.textContent = resultat;
+            number1 = resultat.toString();
+            operator = "";
+            number2 = "";
+        }
+    });
+}
+
 function InitialiserCalculatrice() {
     AffichageChiffres();
     AffichageOperateurs();
     ClearButton();
+    Calculer();
 }
 
 document.addEventListener('DOMContentLoaded', InitialiserCalculatrice);
