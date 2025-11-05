@@ -58,4 +58,3 @@ function InitialiserCalculatrice() {
 }
 
 document.addEventListener('DOMContentLoaded', InitialiserCalculatrice);
-
