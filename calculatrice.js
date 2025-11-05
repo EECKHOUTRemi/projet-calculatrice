@@ -47,9 +47,11 @@ function AffichageOperateurs() {
 
     buttons.forEach(function (button) {
         button.addEventListener('click', function () {
-            let operator = button.getAttribute('data-operator');
+            let op = button.getAttribute('data-operator');
 
-            ValidationSaisie(operator);
+            ValidationSaisie(op);
+
+            operator = op;
         });
     });
 }
