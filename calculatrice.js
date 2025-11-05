@@ -15,4 +15,26 @@ function AffichageChiffres(){
     });
 }
 
-document.addEventListener('DOMContentLoaded', AffichageChiffres);
+function AffichageOperateurs(){
+    let display = document.getElementById('display');
+    let buttons = document.querySelectorAll('button[data-operator]');
+    
+    buttons.forEach(function(button){
+        button.addEventListener('click', function(){
+            let operator = button.getAttribute('data-operator');
+            
+            if (display.textContent === '0') {
+                display.textContent = operator;
+            } else {
+                display.textContent += operator;
+            }
+        });
+    });
+}
+
+function InitialiserCalculatrice(){
+    AffichageChiffres();
+    AffichageOperateurs();
+}
+
+document.addEventListener('DOMContentLoaded', InitialiserCalculatrice);
