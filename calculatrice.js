@@ -7,7 +7,6 @@ function IsLastCharOperator(str) {
 
 function hasAnyOperator(str) {
     return /[+\-*/]/.test(str);
-
 }
 
 function ValidationSaisie(operator) {
@@ -43,11 +42,7 @@ function AffichageOperateurs() {
         button.addEventListener('click', function () {
             let operator = button.getAttribute('data-operator');
 
-            if (display.textContent === '0') {
-                display.textContent = operator;
-            } else {
-                display.textContent += operator;
-            }
+            ValidationSaisie(operator);
         });
     });
 }
