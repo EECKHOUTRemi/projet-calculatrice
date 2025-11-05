@@ -21,7 +21,7 @@ function ValidationSaisie(operator) {
 }
 
 function AffichageChiffres() {
-    let display = document.getElementById('display');
+    let display = document.querySelector('.display');
     let buttons = document.querySelectorAll('button[data-number]');
 
     buttons.forEach(function (button) {
@@ -44,7 +44,6 @@ function AffichageChiffres() {
 }
 
 function AffichageOperateurs() {
-    let display = document.getElementById('display');
     let buttons = document.querySelectorAll('button[data-operator]');
 
     buttons.forEach(function (button) {
@@ -56,9 +55,19 @@ function AffichageOperateurs() {
     });
 }
 
+function ClearButton() {
+    let display = document.querySelector('.display');
+    let clearButton = document.querySelector('.clear');
+
+    clearButton.addEventListener('click', function () {
+        display.textContent = '0';
+    });
+}
+
 function InitialiserCalculatrice() {
     AffichageChiffres();
     AffichageOperateurs();
+    ClearButton();
 }
 
 document.addEventListener('DOMContentLoaded', InitialiserCalculatrice);
