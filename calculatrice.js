@@ -1,5 +1,7 @@
+let number1 = "";
+let operator = "";
+let number2 = "";
 
-//Validation Saisie
 function IsLastCharOperator(str) {
     const last = str.slice(-1);
     return ["+", "-", "*", "/"].includes(last);
@@ -13,6 +15,7 @@ function ValidationSaisie(operator) {
     const current = display.textContent;
     if (current == "0") return;
     if (IsLastCharOperator(current)) return;
+    operator = opClicked;
     display.textContent += operator;
     if (hasAnyOperator(current)) return;
 }
@@ -29,6 +32,12 @@ function AffichageChiffres() {
                 display.textContent = nombre;
             } else {
                 display.textContent += nombre;
+            }
+
+            if (operator === "") {
+                number1 += nombre;
+            } else {
+                number2 += nombre;
             }
         });
     });
