@@ -61,6 +61,9 @@ function ClearButton() {
 
     clearButton.addEventListener('click', function () {
         display.textContent = '0';
+        number1 = "";
+        operator = "";
+        number2 = "";
     });
 }
 
