@@ -15,7 +15,6 @@ function ValidationSaisie(operator) {
     const current = display.textContent;
     if (current == "0") return;
     if (IsLastCharOperator(current)) return;
-    operator = opClicked;
     display.textContent += operator;
     if (hasAnyOperator(current)) return;
 }
